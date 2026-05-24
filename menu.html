@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth h-full">
+<head>
+ <!-- Pré-conexão para domínios externos (otimização de carregamento) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://connect.facebook.net">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#b91c1c">
+<link rel="apple-touch-icon" href="img/logo.jpeg">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golózo - Peça agora o melhor lanche</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link class="rounded-full" rel="shortcut icon" href="img/ico.ico" type="image/x-icon">
+    <style>
+        .product-card {
+            transition: opacity 0.3s ease, display 0.3s ease;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased min-h-full flex flex-col justify-between">
+
+    <header class="bg-red-700 text-white sticky top-0 z-40 shadow-md flex-shrink-0">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center gap-2">
+            <div class="flex items-center gap-2 md:gap-3 min-w-0">
+                <img src="img/logo.jpeg" alt="Golózo Logo" class="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover border-2 border-white shadow-sm flex-shrink-0">
+                <h1 class="font-black text-lg md:text-xl tracking-wider uppercase truncate">
+                    Golózo
+                </h1>
+            </div>
+           <div class="flex items-center text-sm md:text-base font-bold text-white">
+    <span class="tracking-wide">
+        <i class="fa-regular fa-clock mr-2"></i> 15h - 00h30 (Seg-Dom)
+    </span>
+</div>
+        </div>
+    </header>
+
+    <nav class="bg-red-50 text-white sticky top-16 z-30 shadow-md overflow-x-auto">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex gap-2 md:gap-4 min-w-max md:min-w-0 flex-wrap md:flex-nowrap">
+
+            <button id="filter-todos" class="filter-btn bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 md:px-6 rounded-full flex items-center gap-2 whitespace-nowrap transition shadow-sm flex-shrink-0" data-filter="todos">
+                <i class="fa-solid fa-utensils text-base md:text-lg"></i>
+                <span class="text-xs md:text-sm">Todos</span>
+            </button>
+            <button id="filter-combo" class="filter-btn bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 md:px-6 rounded-full flex items-center gap-2 whitespace-nowrap transition text-xs md:text-sm flex-shrink-0" data-filter="combo">
+                <i class="fa-solid fa-bowl-food text-base md:text-lg"></i>
+                <span>Combo</span>
+            </button>
+            <button id="filter-lanches" class="filter-btn bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 md:px-6 rounded-full flex items-center gap-2 whitespace-nowrap transition text-xs md:text-sm flex-shrink-0" data-filter="lanches">
+              <div class="flex items-center gap-2">
+  <i class="fa-solid fa-burger text-base md:text-lg"></i>
+  <span>Lanches</span>
+</div>
+            </button>
+            <button id="filter-acompanhamento" class="filter-btn bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 md:px-6 rounded-full flex items-center gap-2 whitespace-nowrap transition text-xs md:text-sm flex-shrink-0" data-filter="acompanhamento">
+                <i class="fa-solid fa-plate-wheat text-base md:text-lg"></i>
+                <span>Acompanhamento</span>
+            </button>
+            <button id="filter-refrigerantes" class="filter-btn bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 md:px-6 rounded-full flex items-center gap-2 whitespace-nowrap transition text-xs md:text-sm flex-shrink-0" data-filter="refrigerantes">
+                <i class="fa-solid fa-bottle-water text-base md:text-lg"></i>
+                <span>Refrigerantes</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="flex-grow w-full max-w-6xl mx-auto px-4 py-6 md:py-8 space-y-10 pb-32">
+        
+<section id="campeoes" class="py-6 md:py-8 text-center px-4">           
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-7 md:gap-6 mx-auto">
+                <!-- LANCHES -->
+      <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="golozo_carne" data-name="Pão Golozo de Carne" data-preco="14000" data-category="lanches">
+    <!-- Div contêiner da imagem com altura responsiva -->
+    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+        <img 
+            src="img/golozo%20de%20carne.png" 
+            alt="Pão Golozo de Carne" 
+            class="w-full h-full object-cover hover:scale-105 transition" 
+            onerror="this.src='https://placehold.co/300x200?text=Pao+Golozo+Carne'"
+        >
+    </div>
+    
+    <div class="p-3 md:p-4 flex flex-col flex-grow">
+        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Pão Golozo de Carne</h3>
+        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Pão fresco com carne suculenta e molho especial.</p>
+        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 14.000</span>
+        
+        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+            <div class="flex items-center gap-2 md:gap-3">
+                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+            </div>
+            
+            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+            </button>
+        </div>
+    </div>
+</div>
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="hamburger_carne" data-name="Hambúrger de Carne" data-preco="2000" data-category="lanches">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/hamburger_carne.png" alt="Hambúrger de Carne" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Hamburger+Carne'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Hambúrger de Carne</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Hambúrger suculento com carne fresca e molho especial.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 2.000</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="hamburger_frango" data-name="Hambúrger de Frango" data-preco="1800" data-category="lanches">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/hamburger_frango.png" alt="Hambúrger de Frango" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Hamburger+Frango'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Hambúrger de Frango</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Hambúrger de frango macio com tempero especial.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 1.800</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="hamburger_misto" data-name="Hambúrger Misto" data-preco="2500" data-category="lanches">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/hamburger_misto.png" alt="Hambúrger Misto" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Hamburger+Misto'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Hambúrger Misto</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Hambúrger com carne e frango, suculento e saboroso.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 2.500</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="sandes_frango" data-name="Sandes de Frango" data-preco="3000" data-category="lanches">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/sandes_frango.png" alt="Sandes de Frango" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Sandes+Frango'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Sandes de Frango</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Sandes macia com frango desfiado e tempero delicioso.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 3.000</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="hamburger_duplo_carne" data-name="Hambúrger Duplo de Carne" data-preco="2600" data-category="lanches">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/hamburger_duplo_carne.png" alt="Hambúrger Duplo de Carne" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Hamburger+Duplo+Carne'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Hambúrger Duplo de Carne</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Hambúrger duplo com carne suculenta e molho especial.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 2.600</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="hamburger_duplo_frango" data-name="Hambúrger Duplo de Frango" data-preco="2500" data-category="lanches">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/hamburger_duplo_frango.png" alt="Hambúrger Duplo de Frango" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Hamburger+Duplo+Frango'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Hambúrger Duplo de Frango</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Hambúrger duplo com frango macio e tempero delicioso.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 2.500</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMBOS -->
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="combo_grande" data-name="Combo Golozo Grande" data-preco="28000" data-category="combo">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/combo_grande.png" alt="Combo Golozo Grande" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Combo+Grande'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Combo Golozo Grande</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">2 lanches + batata + refrigerante + sobremesa.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 28.000</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="pao_frango_batatas" data-name="Pão Golózo de Frango com Batatas" data-preco="1700" data-category="combo">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/golozo%20frango.png" alt="Pão Golózo de Frango com Batatas" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Pao+Frango+Batatas'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Pão Golózo de Frango com Batatas</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Pão fresco com frango suculento e batatas crocantes.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 1.700</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACOMPANHAMENTOS -->
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="batata1" data-name="Batata Frita Palito" data-preco="500" data-category="acompanhamento">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/batata1.png" alt="Batata Frita" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=batata'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Batata Frita Palito</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Batata frita crocante, dourada e sequinha.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 500</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- REFRIGERANTES -->
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="coca_cola" data-name="Coca-Cola" data-preco="2500" data-category="refrigerantes">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/coca_cola.png" alt="Coca-Cola" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Coca'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Coca-Cola</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Bebida gelada, refrescante e saborosa.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 2.500</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REFRIGERANTES EM LATA 1.000KZ -->
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="fanta_lata" data-name="Fanta Lata" data-preco="1000" data-category="refrigerantes">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/fanta.png" alt="Fanta Lata" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Fanta+Lata'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Fanta (Lata)</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Fanta gelada em lata 350ml.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 1.000</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="sumol_lata" data-name="Sumol Lata" data-preco="1000" data-category="refrigerantes">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/sumol.png" alt="Sumol Lata" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Sumol+Lata'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Sumol (Lata)</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Sumol gelado em lata 350ml.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 1.000</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="compal_lata" data-name="Compal Lata" data-preco="1000" data-category="refrigerantes">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/compal.png" alt="Compal Lata" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Compal+Lata'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Compal (Lata)</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Compal gelado em lata 350ml.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 1.000</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="pepsi_lata" data-name="Pepsi Lata" data-preco="1000" data-category="refrigerantes">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/pepsi.png" alt="Pepsi Lata" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Pepsi+Lata'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Pepsi (Lata)</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Pepsi gelada em lata 350ml.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 1.000</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REFRIGERANTES BIDON 400KZ -->
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="fanta_bidon" data-name="Fanta Bidon" data-preco="400" data-category="refrigerantes">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/fanta.png" alt="Fanta Bidon" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Fanta+Bidon'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Fanta (Bidon)</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Fanta em bidon 250ml.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 400</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="sumol_bidon" data-name="Sumol Bidon" data-preco="400" data-category="refrigerantes">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/sumol.png" alt="Sumol Bidon" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Sumol+Bidon'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Sumol (Bidon)</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Sumol em bidon 250ml.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 400</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="compal_bidon" data-name="Compal Bidon" data-preco="400" data-category="refrigerantes">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/compal.png" alt="Compal Bidon" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Compal+Bidon'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Compal (Bidon)</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Compal em bidon 250ml.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 400</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 active:shadow-lg transition flex flex-col h-full" data-id="pepsi_bidon" data-name="Pepsi Bidon" data-preco="400" data-category="refrigerantes">
+                    <div class="w-full h-40 sm:h-48 md:h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="img/pepsi.png" alt="Pepsi Bidon" class="w-full h-full object-cover hover:scale-105 transition" onerror="this.src='https://placehold.co/300x200?text=Pepsi+Bidon'">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-900 text-xs md:text-base mb-0.5 text-left line-clamp-2">Pepsi (Bidon)</h3>
+                        <p class="text-gray-500 text-[11px] md:text-xs mb-2 text-left line-clamp-1">Pepsi em bidon 250ml.</p>
+                        <span class="text-red-600 font-bold text-base md:text-xl mb-3 text-left block">KZ 400</span>
+                        <div class="flex items-center justify-between mt-auto pt-2.5 border-t border-gray-100">
+                            <div class="flex items-center gap-2 md:gap-3">
+                                <button class="btn-menos w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-red-50 hover:text-red-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">-</button>
+                                <span class="qtd-item font-bold text-gray-800 w-5 md:w-6 text-center text-xs md:text-sm">0</span>
+                                <button class="btn-mais w-6 h-6 md:w-7 md:h-7 rounded-full border border-gray-300 text-gray-600 hover:bg-green-50 hover:text-green-600 transition flex items-center justify-center text-xs md:text-sm font-semibold">+</button>
+                            </div>
+                            <button class="btn-add bg-green-500 hover:bg-green-600 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-md transition" title="Adicionar ao carrinho">
+                                <i class="fa-solid fa-shopping-cart text-xs md:text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+<div id="barra-carrinho" class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-red-100 p-4 z-40 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+    <div class="flex items-center justify-between">
+        
+        <div class="flex flex-col">
+            <span class="text-xs text-gray-500 uppercase">Subtotal</span>
+            <span id="carrinho-total" class="text-xl font-black text-red-700">KZ 0</span>
+            <span id="carrinho-qtd" class="text-xs text-gray-400">0 itens</span>
+        </div>
+
+        <button id="btn-abrir-checkout" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-md flex items-center gap-2 transition-all">
+            🛒 Finalizar Pedido
+        </button>
+        
+    </div>
+</div>
+
+<div class="fixed bottom-20 right-4 flex flex-col gap-3 z-50">
+  <a href="index.html" class="bg-red-600 hover:bg-red-700 text-white w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg transition text-lg md:text-xl border border-red-500" title="Ir para a Home">
+    <i class="fa-solid fa-house"></i>
+</a>
+    
+    <a href="https://wa.me/244955359195" target="_blank" rel="noopener" class="bg-green-500 hover:bg-green-600 text-white w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg transition text-lg md:text-xl border border-green-400" title="Chamar no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <a href="tel:+244955359195" class="bg-blue-600 hover:bg-blue-700 text-white w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg transition text-lg md:text-xl border border-blue-500" title="Ligar">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+</div>
+
+    <div id="modal-checkout" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-0 sm:p-4">
+        <div class="bg-white w-full h-full sm:h-auto sm:max-w-lg sm:rounded-3xl shadow-2xl overflow-y-auto max-h-screen sm:max-h-[90vh] flex flex-col">
+            <div class="p-4 md:p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50 sm:bg-white sticky top-0 z-10">
+                
+                <h3 class="text-red-700 font-black text-base md:text-lg flex items-center gap-2">📋 Finalizar Pedido</h3>
+                <button id="btn-fechar-modal" class="text-gray-400 hover:text-gray-600 text-2xl md:text-xl font-bold px-3 py-1">×</button>
+            </div>
+            
+            <form id="form-checkout" class="p-5 md:p-6 space-y-4 flex-1">
+                <div>
+                    <label class="block text-xs md:text-sm font-bold text-gray-700 mb-1 text-left">📱 Seu Contacto *</label>
+                    <input type="tel" id="chk-contacto" required placeholder="9XX XXX XXX" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-red-700">
+                </div>
+                <div>
+                    <label class="block text-xs md:text-sm font-bold text-gray-700 mb-1 text-left">👤 Seu nome (opcional)</label>
+                    <input type="text" id="chk-nome" placeholder="Como podemos chamar você?" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-red-700">
+                </div>
+                <div>
+                    <label class="block text-xs md:text-sm font-bold text-gray-700 mb-1 text-left">📝 Observação (opcional)</label>
+                    <textarea id="chk-obs" rows="2" placeholder="Ex: Sem cebola, molho extra..." class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-red-700"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs md:text-sm font-bold text-gray-700 mb-1 text-left">📍 Selecione sua zona de entrega *</label>
+         <select id="chk-zona" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm bg-white focus:outline-none focus:border-red-700">
+    <option value="">-- Selecione sua zona --</option>
+    <option value="Golf2" data-taxa="0">📍 Golf2 (Local) - RECOLHA NA LOJA (GRÁTIS)</option>
+    <option value="Golf1" data-taxa="500">📍 Golf1 - KZ 500</option>
+    <option value="Palanca" data-taxa="800">📍 Palanca - KZ 800</option>
+    <option value="Camama" data-taxa="1000">📍 Camama - KZ 1.000</option>
+    <option value="Samba" data-taxa="1200">📍 Samba - KZ 1.200</option>
+    <option value="Talatona" data-taxa="1500">📍 Talatona - KZ 1.500</option>
+    <option value="Benfica" data-taxa="1500">📍 Benfica - KZ 1.500</option>
+    <option value="Kilamba" data-taxa="1500">📍 Cidade do Kilamba - KZ 1.500</option>
+    <option value="Viana" data-taxa="1800">📍 Viana (Vila) - KZ 1.800</option>
+    <option value="Cazenga" data-taxa="2000">📍 Cazenga - KZ 2.000</option>
+    <option value="Mutamba" data-taxa="2500">📍 Mutamba / Centro - KZ 2.500</option>
+    <option value="Ingombota" data-taxa="2500">📍 Ingombota - KZ 2.500</option>
+    <option value="Maianga" data-taxa="2200">📍 Maianga - KZ 2.200</option>
+    <option value="Talatona-Sul" data-taxa="2000">📍 Talatona Sul (Projecto Nova Vida) - KZ 2.000</option>
+    <option value="Alvalade" data-taxa="2500">📍 Alvalade - KZ 2.500</option>
+    <option value="Maculusso" data-taxa="2500">📍 Maculusso - KZ 2.500</option>
+    <option value="Rangel" data-taxa="2000">📍 Rangel - KZ 2.000</option>
+    <option value="Cazenga" data-taxa="2000">📍 Cazenga - KZ 2.000</option>
+    <option value="Cacuaco" data-taxa="3000">📍 Cacuaco - KZ 3.000</option>
+    <option value="Estalagem" data-taxa="2200">📍 Estalagem - KZ 2.200</option>
+    <option value="Patriota" data-taxa="1800">📍 Patriota - KZ 1.800</option>
+    <option value="Zango" data-taxa="3500">📍 Zango - KZ 3.500</option>
+    <option value="Futungo" data-taxa="2000">📍 Futungo - KZ 2.000</option>
+    <option value="Morro Bento" data-taxa="1800">📍 Morro Bento - KZ 1.800</option>
+    <option value="Prenda" data-taxa="2000">📍 Prenda - KZ 2.000</option>
+    <option value="Terra Nova" data-taxa="2000">📍 Terra Nova - KZ 2.000</option>
+    <option value="Cazenga Popular" data-taxa="2200">📍 Cazenga Popular - KZ 2.200</option>
+    <option value="Bairro Operário" data-taxa="2000">📍 Bairro Operário - KZ 2.000</option>
+    <option value="Bairro Azul" data-taxa="2500">📍 Bairro Azul - KZ 2.500</option>
+    <option value="Kinaxixi" data-taxa="2500">📍 Kinaxixi - KZ 2.500</option>
+    <option value="Sambizanga" data-taxa="2500">📍 Sambizanga - KZ 2.500</option>
+    <option value="Maianga Nova" data-taxa="2200">📍 Maianga Nova - KZ 2.200</option>
+    <option value="Musseques" data-taxa="2500">📍 Musseques - KZ 2.500</option>
+    <option value="Cazenga Rangel" data-taxa="2200">📍 Cazenga/Rangel - KZ 2.200</option>
+    <option value="Outros" data-taxa="4000">📍 Outra zona de Luanda - KZ 4.000</option>
+</select>
+                </div>
+                
+                <div>
+                    <label class="block text-xs md:text-sm font-bold text-gray-700 mb-2 text-left">💳 Como prefere pagar?</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button type="button" id="pay-tpa" class="border-2 border-green-500 bg-green-50 text-green-700 font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 text-xs md:text-sm w-full transition-all">🏪 TPA / QR Code</button>
+                        <button type="button" id="pay-dinheiro" class="border-2 border-gray-200 text-gray-600 font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 text-xs md:text-sm w-full transition-all">💵 Dinheiro</button>
+                    </div>
+                </div>
+
+                <div class="pt-2 border-t border-gray-100">
+                    <details class="text-xs md:text-sm text-gray-600 cursor-pointer text-left">
+                        <summary class="font-semibold text-gray-700 hover:text-red-700 transition py-1">🏷️ Tem cupom?</summary>
+                        <div class="flex gap-2 mt-2">
+                            <input type="text" id="chk-cupom" placeholder="Código" class="border border-gray-200 rounded-xl px-3 py-2 text-xs md:text-sm focus:outline-none focus:border-red-700 flex-1 uppercase">
+                            <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold px-4 py-2 rounded-xl text-xs transition">Aplicar</button>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-4 space-y-2 text-xs md:text-sm">
+                    <div class="flex justify-between text-gray-600"><span>Subtotal:</span><span id="summary-subtotal">KZ 0</span></div>
+                    <div class="flex justify-between text-gray-600"><span>🛵 Entrega:</span><span id="summary-entrega">KZ 0</span></div>
+                    <div class="flex justify-between font-black text-sm md:text-base text-red-700 pt-2 border-t border-gray-200">
+                        <span>TOTAL:</span><span id="summary-total">KZ 0</span>
+                    </div>
+                </div>
+
+                <div class="pt-2 pb-4">
+                    <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-black py-3.5 rounded-xl text-center shadow-md transition uppercase tracking-wider flex items-center justify-center gap-2 text-sm md:text-base">
+                        <i class="fa-solid fa-circle-check"></i> Confirmar Pedido
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || {};
+        let metodoPagamento = "TPA / QR Code";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll(".product-card");
+            const barraCarrinho = document.getElementById("barra-carrinho");
+            const carrinhoQtd = document.getElementById("carrinho-qtd");
+            const carrinhoTotal = document.getElementById("carrinho-total");
+            const modal = document.getElementById("modal-checkout");
+            const btnAbrirModal = document.getElementById("btn-abrir-checkout");
+            const btnFecharModal = document.getElementById("btn-fechar-modal");
+            const formCheckout = document.getElementById("form-checkout");
+            const selectZona = document.getElementById("chk-zona");
+            const subtotalTxt = document.getElementById("summary-subtotal");
+            const entregaTxt = document.getElementById("summary-entrega");
+            const totalTxt = document.getElementById("summary-total");
+            const btnTpa = document.getElementById("pay-tpa");
+            const btnDinheiro = document.getElementById("pay-dinheiro");
+
+            cards.forEach(card => {
+                const id = card.getAttribute("data-id");
+                const nome = card.getAttribute("data-name");
+                const preco = parseInt(card.getAttribute("data-preco"));
+                const btnMais = card.querySelector(".btn-mais");
+                const btnMenos = card.querySelector(".btn-menos");
+                const btnAdd = card.querySelector(".btn-add");
+                const qtdDisplay = card.querySelector(".qtd-item");
+
+                // Restaurar a quantidade do produto ao carregar a página
+                if (carrinho[id]) {
+                    qtdDisplay.innerText = carrinho[id].qtd;
+                }
+
+                function gerirQtd(valor) {
+                    if (!carrinho[id]) carrinho[id] = { nome, preco, qtd: 0 };
+                    carrinho[id].qtd += valor;
+                    if (carrinho[id].qtd <= 0) {
+                        delete carrinho[id];
+                        qtdDisplay.innerText = "0";
+                    } else {
+                        qtdDisplay.innerText = carrinho[id].qtd;
+                    }
+                    atualizarBarraHome();
+                    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                }
+
+                btnMais.addEventListener("click", () => gerirQtd(1));
+                btnMenos.addEventListener("click", () => gerirQtd(-1));
+                btnAdd.addEventListener("click", () => gerirQtd(1));
+            });
+
+            function atualizarBarraHome() {
+                let qtdTotal = 0, dineroTotal = 0;
+                Object.values(carrinho).forEach(item => {
+                    qtdTotal += item.qtd;
+                    dineroTotal += (item.qtd * item.preco);
+                });
+                carrinhoQtd.innerHTML = `🛒 ${qtdTotal}`;
+                carrinhoTotal.innerText = `KZ ${dineroTotal.toLocaleString('pt-PT')}`;
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            }
+
+            btnAbrirModal.addEventListener("click", () => {
+                let subtotal = 0;
+                Object.values(carrinho).forEach(i => subtotal += (i.qtd * i.preco));
+                subtotalTxt.innerText = `KZ ${subtotal.toLocaleString('pt-PT')}`;
+                calcularValoresFinais();
+                modal.classList.remove("hidden");
+            });
+
+            btnFecharModal.addEventListener("click", () => modal.classList.add("hidden"));
+            selectZona.addEventListener("change", calcularValoresFinais);
+
+            function calcularValoresFinais() {
+                let subtotal = 0;
+                Object.values(carrinho).forEach(i => subtotal += (i.qtd * i.preco));
+                const opcaoSelecionada = selectZona.options[selectZona.selectedIndex];
+                const taxaEntrega = opcaoSelecionada && opcaoSelecionada.value ? parseInt(opcaoSelecionada.getAttribute("data-taxa")) : 0;
+                entregaTxt.innerText = `KZ ${taxaEntrega.toLocaleString('pt-PT')}`;
+                totalTxt.innerText = `KZ ${(subtotal + taxaEntrega).toLocaleString('pt-PT')}`;
+            }
+
+            function setMetodoPagamento(metodo) {
+                metodoPagamento = metodo;
+                if (metodo === "TPA / QR Code") {
+                    btnTpa.className = "border-2 border-green-500 bg-green-50 text-green-700 font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 text-xs md:text-sm w-full transition-all";    
+                    btnDinheiro.className = "border-2 border-gray-200 text-gray-600 font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 text-xs md:text-sm w-full transition-all";
+                } else {
+                    btnDinheiro.className = "border-2 border-green-500 bg-green-50 text-green-700 font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 text-xs md:text-sm w-full transition-all";    
+                    btnTpa.className = "border-2 border-gray-200 text-gray-600 font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 text-xs md:text-sm w-full transition-all";
+                }
+            }
+
+            btnTpa.addEventListener("click", () => setMetodoPagamento("TPA / QR Code"));
+            btnDinheiro.addEventListener("click", () => setMetodoPagamento("Dinheiro"));
+
+            formCheckout.addEventListener("submit", (e) => {
+                e.preventDefault();
+                if (Object.keys(carrinho).length === 0) return alert("O seu carrinho está vazio!");
+
+                const contacto = document.getElementById("chk-contacto").value;
+                const nome = document.getElementById("chk-nome").value || "Não informado";
+                const obs = document.getElementById("chk-obs").value || "Nenhuma";
+                const zona = selectZona.value;
+
+                let textoPedido = `*Novo Pedido - Golózo*\n\n👤 *Nome:* ${nome}\n📱 *Contacto:* ${contacto}\n📍 *Zona de Entrega:* ${zona}\n💳 *Pagamento:* ${metodoPagamento}\n📝 *Obs:* ${obs}\n\n🛒 *Itens do Pedido:*\n`;
+                let subtotal = 0;
+                
+                Object.values(carrinho).forEach(item => {
+                    textoPedido += `- ${item.qtd}x ${item.nome} (KZ ${(item.preco * item.qtd).toLocaleString('pt-PT')})\n`;
+                    subtotal += item.preco * item.qtd;
+                });
+
+                const taxaEntrega = parseInt(selectZona.options[selectZona.selectedIndex].getAttribute("data-taxa")) || 0;
+                textoPedido += `\n💵 *Subtotal:* KZ ${subtotal.toLocaleString('pt-PT')}\n🛵 *Taxa de Entrega:* KZ ${taxaEntrega.toLocaleString('pt-PT')}\n💰 *Total Geral:* KZ ${(subtotal + taxaEntrega).toLocaleString('pt-PT')}`;
+
+                window.open(`https://wa.me/244955359195?text=${encodeURIComponent(textoPedido)}`, "_blank");
+            });
+
+            // Sistema de filtro de categorias
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const productCards = document.querySelectorAll(".product-card");
+
+            filterButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const filterValue = button.getAttribute("data-filter");
+                    
+                    // Atualizar estilo dos botões
+                    filterButtons.forEach(btn => {
+                        if (btn.getAttribute("data-filter") === filterValue) {
+                            btn.classList.remove("bg-red-700");
+                            btn.classList.add("bg-red-600");
+                        } else {
+                            btn.classList.add("bg-red-700");
+                            btn.classList.remove("bg-red-600");
+                        }
+                    });
+
+                    // Filtrar produtos
+                    productCards.forEach(card => {
+                        const cardCategory = card.getAttribute("data-category");
+                        if (filterValue === "todos" || cardCategory === filterValue) {
+                            card.style.display = "flex";
+                            setTimeout(() => card.style.opacity = "1", 10);
+                        } else {
+                            card.style.opacity = "0";
+                            setTimeout(() => card.style.display = "none", 300);
+                        }
+                    });
+                });
+            });
+
+            // Atualizar a barra ao carregar a página
+            atualizarBarraHome();
+        });
+</script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"3ae4cd3cf16d42cd85d94d562fe033a9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3H49DT211G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3H49DT211G');
+</script>
+</body>
+</html>
